@@ -137,4 +137,32 @@ public class Presentation {
 		assertEquals(35, person.getAge());
 		assertEquals("arthur dent", person.getName().toLowerCase());
 	}
+
+	private int arraySum(int[] arr, int lowerIndex, int upperIndex) {
+		if (upperIndex-lowerIndex > 3) {
+			int mid = (lowerIndex+upperIndex)/2;
+			int leftSum = arraySum(arr, lowerIndex, mid);
+			int rightSum = arraySum(arr, mid+1, upperIndex);
+			return leftSum+rightSum;
+		} else {
+			int acc = 0;
+			for (int i = lowerIndex; i < upperIndex; i++) {
+				acc += arr[i];
+			}
+			return acc;
+		}
+	}
+
+	@Test
+	public void testArraySum() {
+		int[] a = {10,20,30,40,50};
+
+		assertEquals(150, arraySum(a, 0, a.length-1));
+	}
+	/*
+	      {10,20,30,40,50}
+	  {10,20,30}   +  {40,50}
+	{10,20} + {30} +    90
+	   30   +  30  +    90   = 150
+	 */
 }
