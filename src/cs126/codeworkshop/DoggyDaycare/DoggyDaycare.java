@@ -27,7 +27,7 @@ public class DoggyDaycare {
 
 		Dog noDog = DoggyDaycare.pickupPet("Not a dog");
 		System.out.println("This dog does not exists: " + (noDog == null));
-		
+
 		String json = "[{\"name\":\"princess\",\"enemyName\":\"doug\"},{\"name\":\"ralph\",\"enemyName\":\"doug\"},{\"Name\":\"princess\",\"enemyName\":\"doug\"}]";
 		Dog[] dogs = (new Gson()).fromJson(json, Dog[].class);
 		for (Dog dog: dogs) {
