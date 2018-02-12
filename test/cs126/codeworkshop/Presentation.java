@@ -10,6 +10,16 @@ import static org.junit.Assert.assertEquals;
  */
 @SuppressWarnings("ALL")
 public class Presentation {
+	/*
+  _    _                        _                   _          _
+ | |  | |                      | |                 | |        | |
+ | |__| |   ___   __      __   | |_    ___       __| |   ___  | |__    _   _    __ _
+ |  __  |  / _ \  \ \ /\ / /   | __|  / _ \     / _` |  / _ \ | '_ \  | | | |  / _` |
+ | |  | | | (_) |  \ V  V /    | |_  | (_) |   | (_| | |  __/ | |_) | | |_| | | (_| |
+ |_|  |_|  \___/    \_/\_/      \__|  \___/     \__,_|  \___| |_.__/   \__,_|  \__, |
+                                                                                __/ |
+                                                                               |___/
+	 */
 	@Test
 	public void howAComputerSeesCode() {
 		System.out.println("First");
@@ -32,7 +42,7 @@ public class Presentation {
 	@Test
 	public void howAComputerSeesCode3() {
 		System.out.println("First");
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 5; i++) {
 			System.out.println("This is the: " + i + " loop");
 		}
 		System.out.println("Last");
@@ -51,7 +61,7 @@ public class Presentation {
 	}
 
 	@Test
-	public void other() {
+	public void resumeRunning() {
 		System.out.println("FIRST");
 		for (int i = 0; i < 100; i++) {
 			System.out.print(".");
@@ -60,12 +70,19 @@ public class Presentation {
 	}
 
 	@Test
-	public void methods() {
+	public void debugMethods() {
 		System.out.println("First");
 
 		int val = factorial(5);
 
 		System.out.println(val);
+	}
+
+	@Test
+	public void editValues() {
+		System.out.println("How old are you?");
+		int age = 12;
+		System.out.println("You are " + age + " years old");
 	}
 
 	private static int factorial(int i) {
@@ -83,13 +100,16 @@ public class Presentation {
 		System.out.println(myString);
 	}
 
-
-	@Test
-	public void editValues() {
-		System.out.println("How old are you?");
-		int age = 12;
-		System.out.println("You are " + age + " years old");
-	}
+	/*
+  ______                                      _
+ |  ____|                                    | |
+ | |__    __  __   __ _   _ __ ___    _ __   | |   ___   ___
+ |  __|   \ \/ /  / _` | | '_ ` _ \  | '_ \  | |  / _ \ / __|
+ | |____   >  <  | (_| | | | | | | | | |_) | | | |  __/ \__ \
+ |______| /_/\_\  \__,_| |_| |_| |_| | .__/  |_|  \___| |___/
+                                     | |
+                                     |_|
+	*/
 
 	@Test
 	public void whyILikeTheDebugger() {
