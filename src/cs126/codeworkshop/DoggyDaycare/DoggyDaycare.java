@@ -1,5 +1,7 @@
 package cs126.codeworkshop.DoggyDaycare;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +16,8 @@ public class DoggyDaycare {
 		DoggyDaycare.addPet(new Dog("rex", 8, "doug"));
 		DoggyDaycare.addPet(new Dog("paul", 3, "doug"));
 
-		Dog dog = DoggyDaycare.pickupPet("buddy");
-		System.out.println(dog.getName());
+		Dog buddy = DoggyDaycare.pickupPet("buddy");
+		System.out.println(buddy.getName());
 
 		DoggyDaycare.addPet(new Dog("buddy", 1, "charlie"));
 		Dog bella = DoggyDaycare.pickupPet("bella");
@@ -25,11 +27,18 @@ public class DoggyDaycare {
 
 		Dog noDog = DoggyDaycare.pickupPet("Not a dog");
 		System.out.println("This dog does not exists: " + (noDog == null));
+		
+		String json = "[{\"name\":\"princess\",\"enemyName\":\"doug\"},{\"name\":\"ralph\",\"enemyName\":\"doug\"},{\"Name\":\"princess\",\"enemyName\":\"doug\"}]";
+		Dog[] dogs = (new Gson()).fromJson(json, Dog[].class);
+		for (Dog dog: dogs) {
+			System.out.println(dog.getName() + " " +DoggyDaycare.addPet(dog));
+		}
 	}
 
 	public static List<PlayPen> pens = new ArrayList<PlayPen>();
 
 	static {
+		// initalizes the daycare to have 5 pens
 		for (int i = 0; i < 5; i++) {
 			pens.add(new PlayPen());
 		}
@@ -39,7 +48,8 @@ public class DoggyDaycare {
 	 * Takes in a pet and places it in a playpen
 	 * @param dog the dog to be added
 	 * @return if the dog is accepted
-	 * A dog can be rejected if it can't be placed in a pen without starting a fight or if all pens are full
+	 * A dog can be rejected if it can't be placed in a pen without starting a fight,
+	 * or if each pen has a dog of the same name, or if all pens are full
 	 */
 	public static boolean addPet(Dog dog) {
 		for (PlayPen pen: pens) {
@@ -48,14 +58,22 @@ public class DoggyDaycare {
 				if (dogOther == null) {
 					continue;
 				}
+
 				if (dogOther.getEnemyName().equals(dog.getName())) {
+					// Checks if enemy name matches
 					works = false;
 					break;
 				} else if (dog.getEnemyName().equals(dog.getName())) {
+					// Checks if enemy name matches
+					works = false;
+					break;
+				} else if (dogOther.getName().equals(dog.getName())) {
+					// Checks if two dogs have the same name
 					works = false;
 					break;
 				}
 			}
+
 			if (works) {
 				if (pen.addDog(dog)) {
 					return true;
