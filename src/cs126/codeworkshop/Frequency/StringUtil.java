@@ -46,9 +46,10 @@ public class StringUtil {
 		char maxChar = '-';
 		int maxCount = 0;
 		for (int i = 0; i < characterList.size(); i++) {
-			if (countList.get(i) > maxCount)
+			if (countList.get(i) > maxCount) {
 				maxChar = characterList.get(i);
 				maxCount = countList.get(i);
+			}
 		}
 
 		return maxChar;
