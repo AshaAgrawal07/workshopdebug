@@ -159,4 +159,10 @@ public class Presentation {
 
 		assertEquals(150, arraySum(a, 0, a.length-1));
 	}
+	/*
+	      {10,20,30,40,50}
+	  {10,20,30}   +  {40,50}
+	{10,20} + {30} +    90
+	   30   +  30  +    90   = 150
+	 */
 }
