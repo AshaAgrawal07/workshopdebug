@@ -33,12 +33,13 @@ public class StringUtil {
 		List<Integer> countList = new ArrayList<Integer>();
 		for (int i = 0; i < input.length(); i++) {
 			if (findInList(characterList, input.charAt(i)) == -1) {
-				characterList.add(0, input.charAt(i));
-				countList.add(0, 1);
+				characterList.add(input.charAt(i));
+				countList.add(1);
 			} else {
 				int index = findInList(characterList, input.charAt(i));
 				int count = countList.get(index);
 				count++;
+				countList.add(index, count);
 			}
 		}
 
@@ -55,7 +56,7 @@ public class StringUtil {
 
 	private static int findInList(List<Character> list, char c) {
 		for (int i = 0; i < list.size(); ++i) {
-			if (list.get(i) == c)
+			if (list.get(i).equals(c))
 				return i;
 		}
 		return -1;

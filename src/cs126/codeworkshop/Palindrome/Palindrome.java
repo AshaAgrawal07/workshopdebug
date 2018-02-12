@@ -21,7 +21,7 @@ public class Palindrome {
 
 	public static boolean checkIsPalindrome(String input) {
 		for (int i = 0; i < input.length()/2; i++) {
-			if (input.charAt(i) != input.charAt(input.length() - i)) {
+			if (input.charAt(i) != input.charAt(input.length() - i - 1)) {
 				return false;
 			}
 		}
