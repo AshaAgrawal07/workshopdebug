@@ -49,6 +49,12 @@ public class Presentation {
 	}
 
 	@Test
+	public void checkingValue() {
+		String myString = "12345";
+		System.out.println(myString);
+	}
+
+	@Test
 	public void checking() {
 		System.out.println("First");
 		int i = 0;
@@ -78,13 +84,6 @@ public class Presentation {
 		System.out.println(val);
 	}
 
-	@Test
-	public void editValues() {
-		System.out.println("How old are you?");
-		int age = 12;
-		System.out.println("You are " + age + " years old");
-	}
-
 	private static int factorial(int i) {
 		if (i <= 0) {
 			return 1;
@@ -93,12 +92,13 @@ public class Presentation {
 		return i * factorial(i-1);
 	}
 
-
 	@Test
-	public void checkingValue() {
-		String myString = "12345";
-		System.out.println(myString);
+	public void editValues() {
+		System.out.println("How old are you?");
+		int age = 12;
+		System.out.println("You are " + age + " years old");
 	}
+
 
 	/*
   ______                                      _
@@ -179,6 +179,14 @@ public class Presentation {
 
 		assertEquals(150, arraySum(a, 0, a.length-1));
 	}
+
+
+
+
+
+
+
+
 	/*
 	      {10,20,30,40,50}
 	  {10,20,30}   +  {40,50}
